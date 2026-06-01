@@ -48,8 +48,13 @@ body::after {
 /* ── SPORT BG ── */
 .sport-bg {
   position: relative;
-  background:
-    linear-gradient(160deg, rgba(8,0,8,0.05) 0%, rgba(30,0,10,0.05) 40%, rgba(8,0,8,0.10) 100%);
+  background: #080008;
+}
+.sport-bg .hero-bg-img {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 /* ── NAV ── */
@@ -103,9 +108,6 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  background-image: url("img/hero-bg.png");
-  background-size: cover;
-  background-position: center top;
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
   padding: 90px 24px 60px;
@@ -739,7 +741,7 @@ footer {
 </nav>
 
 <!-- HERO -->
-<section class="hero sport-bg">
+<section class="hero sport-bg"><img class="hero-bg-img" src="img/hero-bg.png" alt="">
   <div class="hero-inner">
     <div class="hero-logo-wrap">
       <img src="img/logo.png" alt="DiablitoBet Logo" onerror="this.style.background='rgba(232,0,13,0.3)'">
