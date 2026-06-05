@@ -1603,5 +1603,67 @@ for(let i=0;i<22;i++){
 }
 
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Recargas apuestas
+  document.querySelectorAll('button[onclick*="recarga-ecuabet"], button[onclick*="modal-recarga-ecuabet"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'InitiateCheckout', {content_name: 'Recarga Ecuabet'}));
+  });
+  document.querySelectorAll('button[onclick*="recarga-doradobet"], button[onclick*="modal-recarga-doradobet"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'InitiateCheckout', {content_name: 'Recarga Doradobet'}));
+  });
+  document.querySelectorAll('button[onclick*="recarga-sporbet"], button[onclick*="modal-recarga-sporbet"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'InitiateCheckout', {content_name: 'Recarga Sporbet'}));
+  });
+
+  // Retiros
+  document.querySelectorAll('button[onclick*="retiro"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'InitiateCheckout', {content_name: 'Retiro ' + b.innerText}));
+  });
+
+  // Recargas celular
+  document.querySelectorAll('button[onclick*="cel-"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'AddToCart', {content_name: 'Recarga Celular ' + b.innerText}));
+  });
+
+  // Pagos servicios
+  document.querySelectorAll('button[onclick*="serv-"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'AddToCart', {content_name: 'Pago Servicio ' + b.innerText}));
+  });
+
+  // Pagos bancos
+  document.querySelectorAll('button[onclick*="banco-"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'AddToCart', {content_name: 'Pago Banco ' + b.innerText}));
+  });
+
+  // WhatsApp asesor
+  document.querySelectorAll('a[href*="wa.me"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'Contact'));
+  });
+
+  // Grupo VIP
+  document.querySelectorAll('a[href*="chat.whatsapp"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'Lead', {content_name: 'Grupo VIP Gratuito'}));
+  });
+
+  // Bingo593
+  document.querySelectorAll('a[href*="bingo593"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'Lead', {content_name: 'Registro Bingo593'}));
+  });
+
+  // Crear cuentas casas apuestas
+  document.querySelectorAll('a[href*="ecuabet.com"], a[href*="doradobet.com"]').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'CompleteRegistration', {content_name: 'Crear Cuenta ' + b.innerText}));
+  });
+
+  // Formularios enviados
+  document.querySelectorAll('.form-submit').forEach(b => {
+    b.addEventListener('click', () => fbq('track', 'Purchase', {value: 0, currency: 'USD', content_name: b.innerText}));
+  });
+
+});
+</script>
 </body>
 </html>
